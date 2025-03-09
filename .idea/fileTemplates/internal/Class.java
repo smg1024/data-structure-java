@@ -2,7 +2,7 @@
 
 #end
 #parse("File Header.java")
-public class ${NAME} {
+class ${NAME} {
     public static void main(String[] args) {
         
     }
