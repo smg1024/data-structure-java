@@ -2,17 +2,25 @@ package chap02;
 
 class PrimeNumber {
     public static void main(String[] args) {
-        // 1000 이하의 소수 나열
         int counter = 0;
+        int indexPointer = 0;
+        int[] prime = new int[500];
 
-        for (int n = 2; n <= 1000; n++) {
+        prime[indexPointer++] = 2;
+
+        for (int n = 3; n <= 1000; n += 2) {
             int i;
-            for (i = 2; i < n; i++) {
+            for (i = 1; i < indexPointer; i++) {
                 counter++;
-                if (n % i == 0) break;
+                if (n % prime[i] == 0) break;
             }
-            if (n == i) System.out.println(n);
+            if (indexPointer == i) prime[indexPointer++] = n;
         }
+
+        for (int i = 0; i < indexPointer; i++) {
+            System.out.println(prime[i]);
+        }
+
         System.out.println("counter = " + counter);
     }
 }
