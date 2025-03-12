@@ -10,6 +10,8 @@ class CardinalConversion {
 
         do {
             d[digits++] = dChar.charAt(x % r);
+            System.out.printf("x = %2d", x);
+            System.out.println(" --- " + d[digits - 1]);
             x /= r;
         } while (x != 0);
 
