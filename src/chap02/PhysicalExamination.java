@@ -30,9 +30,9 @@ class PhysicalExamination {
         int i = 0;
         dist[i] = 0;
 
-        for (i = 0; i < dataArray.length; i++) {
-            if (dataArray[i].vision >= 0.0 && dataArray[i].vision <= VMAX / 10.0) {
-                dist[(int) (dataArray[i].vision * 10)]++;
+        for (PhysicalData data : dataArray) {
+            if (data.vision >= 0.0 && data.vision <= VMAX / 10.0) {
+                dist[(int) (data.vision * 10)]++;
             }
         }
     }
@@ -53,9 +53,9 @@ class PhysicalExamination {
         System.out.println("이름     키     시력");
         System.out.println("-------------------");
 
-        for (int i = 0; i < studentList.length; i++) {
+        for (PhysicalData data : studentList) {
             System.out.printf("%-8s%3d%5.1f\n",
-                    studentList[i].name, studentList[i].height, studentList[i].vision);
+                    data.name, data.height, data.vision);
         }
 
         System.out.printf("\n평균 키: %5.1fcm\n", averageHeight(studentList));
