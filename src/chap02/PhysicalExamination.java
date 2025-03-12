@@ -64,7 +64,7 @@ class PhysicalExamination {
 
         System.out.println("\n시력 분포");
         for (int i = 0; i < VMAX; i++) {
-            System.out.printf("%3.1f~: %2d명\n", i / 10.0, visionDistribution[i]);
+            System.out.printf("%3.1f~: %s\n", i / 10.0, "*".repeat(visionDistribution[i]));
         }
     }
 }
