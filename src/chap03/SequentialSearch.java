@@ -20,15 +20,19 @@ class SequentialSearch {
     }
 
     static int seqSearchSentinel(int[] a, int n, int key) {
-        a[n] = key;
-
-        int i = 0;
-        while (true) {
-            if (a[i] == key) break;
-            i++;
+        int i;
+        for (i = 0; i < n; i++) {
+            if (a[i] == key) return i;
         }
 
-        return i == n ? -1 : i;
+        return -1;
+//        int i = 0;
+//        while (true) {
+//            if (a[i] == key) break;
+//            i++;
+//        }
+//
+//        return i == n ? -1 : i;
     }
 
     public static void main(String[] args) {
