@@ -4,6 +4,5 @@
 #parse("File Header.java")
 class ${NAME} {
     public static void main(String[] args) {
-        
     }
 }
