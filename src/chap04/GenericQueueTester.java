@@ -2,15 +2,15 @@ package chap04;
 
 import java.util.Scanner;
 
-class GenericStackTester {
+class GenericQueueTester {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        GenericStack<String> stk = new GenericStack<>(64);
+        GenericQueue<String> queue = new GenericQueue<>(64);
 
         while (true) {
             System.out.println();
-            System.out.printf("Stack Status: %d / %d\n", stk.size(), stk.getCapacity());
-            System.out.print("(1) push  (2) pop  (3) peek  (4) dump  (0) exit: ");
+            System.out.printf("Queue Status: %d / %d\n", queue.size(), queue.getCapacity());
+            System.out.print("(1) en-queue  (2) de-queue  (3) peek  (4) dump  (5) orderOf  (0) exit: ");
 
             int menu = scanner.nextInt();
             if (menu == 0) break;
@@ -18,11 +18,11 @@ class GenericStackTester {
             String x;
             switch (menu) {
                 case 1:
-                    System.out.print("push data: ");
+                    System.out.print("enqueue data: ");
                     x = scanner.next();
 
                     try {
-                        System.out.printf("%s is pushed", stk.push(x));
+                        System.out.printf("%s is enqueued.", queue.enqueue(x));
                     } catch (StackOverflowError e) {
                         System.out.println("Stack is full.");
                     }
@@ -31,7 +31,7 @@ class GenericStackTester {
 
                 case 2:
                     try {
-                        x = stk.pop();
+                        x = queue.dequeue();
                         System.out.printf("Popped data is %s\n", x);
                     } catch (EmptyStackException e) {
                         System.out.println("Stack is empty.");
@@ -41,7 +41,7 @@ class GenericStackTester {
 
                 case 3:
                     try {
-                        x = stk.peek();
+                        x = queue.peek();
                         System.out.printf("Peeked data is %s\n", x);
                     } catch (EmptyStackException e) {
                         System.out.println("Stack is empty.");
@@ -50,8 +50,15 @@ class GenericStackTester {
                     break;
 
                 case 4:
-                    stk.dump();
+                    queue.dump();
                     break;
+
+                case 5:
+                    System.out.print("search data: ");
+                    x = scanner.next();
+                    int order = queue.orderOf(x);
+                    if (order < 0) System.out.printf("%s does not exist.\n", x);
+                    else System.out.printf("%s is in %dth order.\n", x, order);
             }
         }
     }
