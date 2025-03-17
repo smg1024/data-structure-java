@@ -82,4 +82,14 @@ class IntQueue {
             }
         }
     }
+
+    public int orderOf(int x) {
+        int idx = indexOf(x);
+        if (idx <= -1) {
+            return idx;
+        } else {
+            int order = idx - front + 1;
+            return (order > 0) ? order : order + capacity;
+        }
+    }
 }
