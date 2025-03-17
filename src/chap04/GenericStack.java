@@ -61,7 +61,7 @@ class GenericStack<E> {
         if (ptr <= 0) System.out.println("Stack is empty.");
         else {
             for (int i = 0; i < ptr; i++) {
-                System.out.printf("stk[%d] = %d\n", i, stk[i].toString());
+                System.out.printf("stk[%d] = %s\n", i, stk[i].toString());
             }
         }
     }
